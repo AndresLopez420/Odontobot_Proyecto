@@ -4,19 +4,17 @@ Odontobot es un proyecto diseñado para apoyar las habilidades y competencias de
 
 ## Características
 
-- **Interactividad**: Permite a los usuarios interactuar con un chatbot para obtener información sobre temas dentales.
-- **Tecnología avanzada**: Utiliza [tecnologías Node.js, Angular y MySQL para brindar una experiencia fluida y eficiente.
+- **Interactividad**: Permite a los usuarios interactuar con un chatbot para obtener información sobre casos clínicos.
+- **Tecnología avanzada**: Utiliza tecnologías como Node.js, Angular y MySQL para brindar una experiencia fluida y eficiente.
 - **Base de datos integrada**: Se almacena información sobre pacientes y casos clínicos en una base de datos MySQL.
-- **Accesibilidad**: Diseñado para ser accesible desde diferentes dispositivos, incluyendo móviles y de escritorio.
-- **Actualizaciones en tiempo real**: [Si aplicable, menciona cómo se actualizan los datos o información en tiempo real].
   
 ## Requisitos del Sistema
 
-Node.js: v14 o superior
-NPM: v6 o superior
-Angular CLI: v16.0.0 o compatible
-Navegador: Última versión de Chrome, Firefox, Safari o Edge
-Sistema Operativo: Linux, macOS o Windows
+- Node.js: v14 o superior
+- NPM: v6 o superior
+- Angular CLI: v16.0.0 o compatible
+- Navegador: Última versión de Chrome, Firefox, Safari o Edge
+- Sistema Operativo: Linux, macOS o Windows
 
 ## Dependencias Clave Frontend:
 - Angular: Utiliza Angular 14, que requiere Node.js y npm específicos.
@@ -71,6 +69,8 @@ Sistema Operativo: Linux, macOS o Windows
 6. **Acceder a la Aplicación**
 
    Abre tu navegador y visita `http://localhost:4200` (o el puerto que hayas configurado) para acceder a la aplicación.
+
+## Licencia
 
    Este proyecto está bajo la Licencia del **Universidad de Valparaíso, Escuela de Ingeniería Civil Informática**. Se permite el uso, modificación y distribución del código bajo las siguientes condiciones:
 
