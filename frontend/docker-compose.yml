@@ -1,0 +1,55 @@
+version: '3'
+services:
+
+  frontend:
+    restart: always
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    env_file:
+      - ./env/environment.env
+    environment:
+      VIRTUAL_HOST: odontobot.localhost
+    depends_on:
+      - backend
+    networks:
+      - backend_network
+      - frontend_network
+
+  backend:
+    restart: always
+    build:
+      context: ./server/
+      dockerfile: Dockerfile
+    env_file:
+      - ./env/environment.env
+    environment:
+      DB_HOST: db
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: odontobot
+    depends_on:
+      - db
+    networks:
+      - backend_network
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1111
+      MYSQL_DATABASE: odontobot
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - backend_network
+
+volumes:
+  db_data:
+
+networks:
+  backend_network:
+  frontend_network:
+

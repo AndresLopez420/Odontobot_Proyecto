@@ -1,0 +1,34 @@
+.mat-toolbar {
+    margin: 0;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.title-center {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+mat-form-field {
+    padding: 10px;
+    width: 100%; /* Hace que los campos ocupen todo el ancho disponible */
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-direction: column; /* Coloca los campos uno debajo del otro */
+    gap: 15px; /* Espaciado entre los campos */
+}
+
+mat-dialog-content {
+    padding: 20px; /* Espaciado interno del contenido del diálogo */
+}
+
+mat-dialog-actions {
+    justify-content: center; /* Centra los botones en la parte inferior */
+}
+
+button {
+    margin: 0 10px; /* Espaciado entre los botones */
+}

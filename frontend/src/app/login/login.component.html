@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row">
+        <span class="title-center">Iniciar Sesión</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+<form [formGroup]="loginForm">
+    <div fxFlex fxLayout="column">
+        <mat-form-field appearance="fill" fxFlex>
+            <mat-label>Rut</mat-label>
+                <input matInput formControlName="rut" required />
+                <mat-error *ngIf="loginForm.controls.rut.touched && loginForm.controls.rut.invalid">
+                    <span *ngIf="loginForm.controls.rut.errors?.required">Este campo es obligatorio.</span>
+                    <span *ngIf="loginForm.controls.rut.errors?.pattern">Este campo es inválido.</span>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex>
+            <mat-label>Contraseña</mat-label>
+                <input matInput formControlName="password" type="password" required />
+                <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+                    <span *ngIf="loginForm.controls.password.errors?.required">Este campo es obligatorio.</span>
+                    <span *ngIf="loginForm.controls.password.errors?.pattern">Este campo es inválido.</span>
+            </mat-error>
+        </mat-form-field>
+    </div>
+</form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()" 
+    >Iniciar Sesión</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

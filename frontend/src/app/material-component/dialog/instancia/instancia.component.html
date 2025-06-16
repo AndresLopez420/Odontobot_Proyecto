@@ -1,0 +1,143 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row">
+        <span class="title-center">Crear Instancia</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="instanciaForm">
+        <div fxFlex fxLayout="column">
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="nombre_instancia" required>
+                    <mat-error *ngIf="instanciaForm.controls.nombre_instancia.touched && instanciaForm.controls.nombre_instancia.invalid">
+                        <span *ngIf="instanciaForm.controls.nombre_instancia.errors.required">Este campo es obligatorio</span>
+                        <span *ngIf="instanciaForm.controls.nombre_instancia.errors.pattern">Este campo es inválido</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Tipo</mat-label>
+                    <mat-select formControlName="tipo_instancia" required>
+                        <mat-option value="evaluacion">Evaluación</mat-option>
+                        <mat-option value="practica">Práctica</mat-option>
+                        <mat-option value="calibracion">Calibración</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="instanciaForm.controls.tipo_instancia.touched && instanciaForm.controls.tipo_instancia.invalid">
+                        <span *ngIf="instanciaForm.controls.tipo_instancia.errors.required">Este campo es obligatorio</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Caso Clínico</mat-label>
+                    <mat-select formControlName="id_caso">
+                        <mat-option *ngFor="let caso_clinico of casos" [value]="caso_clinico.id_caso">{{caso_clinico.nombre_caso}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="fill" fxFlex>
+                <mat-label>Descripción</mat-label>
+                <textarea matInput formControlName="descripcion" required></textarea>
+                <mat-error *ngIf="instanciaForm.controls.descripcion.touched && instanciaForm.controls.descripcion.invalid">
+                    <span *ngIf="instanciaForm.controls.descripcion.errors.required">Este campo es obligatorio</span>
+                    <span *ngIf="instanciaForm.controls.descripcion.errors.pattern">Este campo es inválido</span>
+                </mat-error>
+            </mat-form-field>
+
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Prácticas Mínimas</mat-label>
+                    <input matInput formControlName="practicas_minimas" required>
+                    <mat-error *ngIf="instanciaForm.controls.practicas_minimas.touched && instanciaForm.controls.practicas_minimas.invalid">
+                        <span *ngIf="instanciaForm.controls.practicas_minimas.errors.required">Este campo es obligatorio</span>
+                        <span *ngIf="instanciaForm.controls.practicas_minimas.errors.pattern">Este campo es inválido</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Intentos</mat-label>
+                    <input matInput formControlName="intentos" required>
+                    <mat-error *ngIf="instanciaForm.controls.intentos.touched && instanciaForm.controls.intentos.invalid">
+                        <span *ngIf="instanciaForm.controls.intentos.errors.required">Este campo es obligatorio</span>
+                        <span *ngIf="instanciaForm.controls.intentos.errors.pattern">Este campo es inválido</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Entrega</mat-label>
+                    <input matInput [matDatepicker]="entregaPicker" formControlName="entrega" required>
+                    <mat-datepicker-toggle matSuffix [for]="entregaPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #entregaPicker></mat-datepicker>
+                    <mat-error *ngIf="instanciaForm.controls.entrega.touched && instanciaForm.controls.entrega.invalid">
+                        <span *ngIf="instanciaForm.controls.entrega.errors.required">Este campo es obligatorio</span>
+                        <span *ngIf="instanciaForm.controls.entrega.errors.pattern">Este campo es inválido</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Estado</mat-label>
+                    <mat-select formControlName="estado" required>
+                        <mat-option value="activo">Activo</mat-option>
+                        <mat-option value="inactivo">Inactivo</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="instanciaForm.controls.estado.touched && instanciaForm.controls.estado.invalid">
+                        <span *ngIf="instanciaForm.controls.estado.errors.required">Este campo es obligatorio</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Modalidad</mat-label>
+                    <mat-select formControlName="modalidad" required>
+                        <mat-option value="individual">Individual</mat-option>
+                        <mat-option value="grupo">Grupo</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="instanciaForm.controls.modalidad.touched && instanciaForm.controls.modalidad.invalid">
+                        <span *ngIf="instanciaForm.controls.modalidad.errors.required">Este campo es obligatorio</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Fecha Inicio</mat-label>
+                    <input matInput [matDatepicker]="inicioPicker" formControlName="fecha_inicio" required>
+                    <mat-datepicker-toggle matSuffix [for]="inicioPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #inicioPicker></mat-datepicker>
+                    <mat-error *ngIf="instanciaForm.controls.fecha_inicio.touched && instanciaForm.controls.fecha_inicio.invalid">
+                        <span *ngIf="instanciaForm.controls.fecha_inicio.errors.required">Este campo es obligatorio</span>
+                        <span *ngIf="instanciaForm.controls.fecha_inicio.errors.pattern">Este campo es inválido</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Fecha Término</mat-label>
+                    <input matInput [matDatepicker]="terminoPicker" formControlName="fecha_termino" required>
+                    <mat-datepicker-toggle matSuffix [for]="terminoPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #terminoPicker></mat-datepicker>
+                    <mat-error *ngIf="instanciaForm.controls.fecha_termino.touched && instanciaForm.controls.fecha_termino.invalid">
+                        <span *ngIf="instanciaForm.controls.fecha_termino.errors.required">Este campo es obligatorio</span>
+                        <span *ngIf="instanciaForm.controls.fecha_termino.errors.pattern">Este campo es inválido</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()">Enviar</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>

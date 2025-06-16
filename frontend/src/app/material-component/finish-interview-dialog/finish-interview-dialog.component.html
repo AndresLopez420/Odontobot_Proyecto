@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Resultados de la Entrevista</h1>
+<div mat-dialog-content>
+  <p><strong>Puntaje total:</strong> {{ data.score }}%</p>
+  <p><strong>Campos solicitados:</strong></p>
+  <ul>
+    <li *ngFor="let field of data.requestedFields">{{ field }}</li>
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cerrar</button>
+</div>

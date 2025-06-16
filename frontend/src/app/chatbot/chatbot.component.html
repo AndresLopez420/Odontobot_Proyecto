@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="chat-container">
+    <div class="header">
+      <img src="../assets/img/LOGO_white.png" alt="Odontobot" class="header-logo">
+      <h2>Odontobot</h2>
+    </div>
+    <div class="messages-container" #messagesContainer>
+      <div *ngFor="let message of messages" [class.user-message]="message.from === 'user'"
+           [class.virtual-message]="message.from === 'bot'">
+        <div class="message-content">
+          <img *ngIf="message.from === 'bot'" src="../assets/img/LOGO_white.png" alt="Bot" class="bot-icon">
+          <span *ngIf="message.from === 'user'" class="user-text">{{ message.text }}</span>
+          <span *ngIf="message.from === 'bot'" class="bot-text" [innerHTML]="getSafeHtml(message.text)"></span>
+          <span *ngIf="message.from === 'bot' && message.text === '' && isBotTyping" class="typing"></span>
+        </div>
+      </div>
+    </div>
+    <div class="input-container">
+      <textarea [(ngModel)]="userInput" (keyup.enter)="sendMessage()" [disabled]="isInputDisabled"
+        placeholder="Escribe tu mensaje"></textarea>
+      <button matTooltip="Enviar" (click)="sendMessage()"><mat-icon class="custom-icon">send</mat-icon></button>
+    </div>
+  </div>
+</div>
+
+<div class="diagnosis-container">
+  <div class="input-container">
+    <textarea [(ngModel)]="diagnosisInput" [disabled]="isInputDisabled" placeholder="Ingresa la hipótesis diagnóstica"></textarea>
+    <button (click)="finishInterview()" class="finish-interview">Finalizar entrevista</button>
+  </div>
+</div>
+
+<div *ngIf="showInterviewSummary" class="summary-container">
+  <h2>Resumen de la Entrevista</h2>
+  <ul>
+    <li *ngFor="let category of checklistKeys" 
+        [ngClass]="{'completed': checklist[category], 'pending': !checklist[category]}">
+      {{ displayNames[category] }}: {{ checklist[category] ? 'Completado' : 'Pendiente' }}
+    </li>
+  </ul>
+  <p><strong>Puntaje final:</strong> {{ score }}</p>
+</div>

@@ -1,0 +1,104 @@
+/* Estilos generales */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: #ffffff; /* Color de fondo blanco */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: flex-start; /* Cambia a flex-start para alinear hacia arriba */
+  height: 100vh; /* Altura completa de la ventana */
+  padding-top: 100px; /* Espacio superior para el navbar */
+}
+
+.main-card {
+  max-width: 1000px;
+  width: 100%; /* Asegura que el contenedor use el 100% del ancho disponible */
+  padding: 40px 20px;
+  border-radius: 15px; /* Bordes redondeados para la tarjeta principal */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  background-color: #f9f9f9; /* Color de fondo claro para el contenedor */
+}
+
+.main-title {
+  text-align: start; /* Centra el título */
+  font-size: 2.3em; /* Tamaño de fuente grande */
+  margin-bottom: 10px; /* Espacio debajo del título */
+  color: #13084d; /* Color del texto */
+}
+
+.main-subtitle {
+  text-align: center; /* Centra el subtítulo */
+  font-size: 1.2em; /* Tamaño de fuente del subtítulo */
+  color: #14084da7; /* Color más claro para el subtítulo */
+  margin-bottom: 20px; /* Espacio debajo del subtítulo */
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan */
+  justify-content: center; /* Centra las tarjetas en la fila */
+}
+
+.col-4 {
+  flex: 0 0 30%; /* Cada tarjeta ocupa aproximadamente un tercio del ancho */
+  margin: 30px; /* Espacio entre las tarjetas */
+  margin-bottom: 20px; /* Espacio entre filas */
+}
+
+/* Contenedor para el título y el ícono */
+.card-title-container {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el ícono y el texto */
+  justify-content: center; /* Centra horizontalmente el contenido */
+}
+
+/* Estilo para los títulos de las tarjetas */
+.option-card mat-card-title {
+  text-align: center; /* Centra el título dentro de la tarjeta */
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  margin-left: -10px; /* Ajusta el valor en píxeles según sea necesario */
+}
+
+
+/* Asegúrate de que las tarjetas se alineen correctamente */
+.option-card {
+  background-color: #ffffff; /* Color de fondo blanco para las tarjetas */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+  height: 180px; /* Ajusta la altura de las tarjetas */
+  display: flex;
+  flex-direction: column; /* Alinea el contenido verticalmente */
+  align-items: center; /* Centra el contenido horizontalmente */
+  justify-content: center; /* Centra el contenido verticalmente */
+}
+
+.option-card:hover {
+  transform: translateY(-2px); /* Eleva la tarjeta al pasar el mouse */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al hacer hover */
+}
+
+.option-card:active {
+  color: #007bff; /* Cambia el color de la fuente a azul */
+}
+
+/* Estilo para los iconos */
+.mat-icon {
+  font-size: 24px; /* Tamaño del icono */
+  margin-right: 14px; /* Espacio a la derecha del icono */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .col-4 {
+    flex: 0 0 45%; /* Dos tarjetas por fila en pantallas pequeñas */
+    max-width: 45%; /* Limita el ancho máximo */
+  }
+}
+
+@media (max-width: 480px) {
+  .col-4 {
+    flex: 0 0 100%; /* Una tarjeta por fila en pantallas muy pequeñas */
+    max-width: 100%;
+  }
+}

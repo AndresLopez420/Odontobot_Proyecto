@@ -1,0 +1,62 @@
+<body>
+    <!-- Tarjeta principal -->
+    <mat-card class="main-card">
+        <mat-card-header>
+            <mat-card-title class="main-title">Menú Principal</mat-card-title>
+            <mat-card-subtitle class="main-subtitle">Selecciona una opción para continuar</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <!-- Fila de tarjetas -->
+            <div class="row">
+                <!-- Tarjeta: Casos Clínicos -->
+                <div class="col-4" *ngIf="userRole === 'profesor'">
+                    <a [routerLink]="['/lobby/casosc']" style="text-decoration: none;">
+                        <mat-card class="option-card">
+                            <mat-card-header>
+                                <mat-card-title>
+                                    <mat-icon class="mat-icon">assignment</mat-icon> Casos Clínicos
+                                </mat-card-title>
+                                <mat-card-subtitle>Explora y gestiona casos clínicos</mat-card-subtitle>
+                            </mat-card-header>
+                           <!--<mat-card-content>
+                                <h1>{{ data?.caso_clinico || '0' }}</h1>
+                            </mat-card-content>-->
+                        </mat-card>
+                    </a>
+                </div>
+
+                <!-- Tarjeta: Instancias (solo para profesores) -->
+                <div class="col-4" *ngIf="userRole === 'profesor'">
+                    <a [routerLink]="['/lobby/instancia']" style="text-decoration: none;">
+                        <mat-card class="option-card">
+                            <mat-card-header>
+                                <mat-card-title>
+                                    <mat-icon>folder_open</mat-icon> Instancias
+                                </mat-card-title>
+                                <mat-card-subtitle>Gestiona las instancias disponibles</mat-card-subtitle>
+                            </mat-card-header>
+                            <!--<mat-card-content>
+                                <h1>{{ data?.instancias || '0' }}</h1>
+                            </mat-card-content>-->
+                        </mat-card>
+                    </a>
+                </div>
+
+                <!-- Tarjeta: Realizar Entrevista (solo para estudiantes) -->
+                <div class="col-4" *ngIf="userRole === 'estudiante'">
+                    <a [routerLink]="['/lobby/chatbot']" style="text-decoration: none;">
+                        <mat-card class="option-card">
+                            <mat-card-header>
+                                <mat-card-title>
+                                    <mat-icon>chat</mat-icon> Entrevista
+                                </mat-card-title>
+                                <mat-card-subtitle>Realiza una entrevista al PV</mat-card-subtitle>
+                            </mat-card-header>
+                        </mat-card>
+                    </a>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</body>

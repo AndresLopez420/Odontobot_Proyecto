@@ -1,0 +1,47 @@
+<mat-card>
+    <b><span>Casos Clinicos</span></b>
+    <button mat-flat-button color="primary" class="float-right" (click)="handleAddAction()">Añadir Caso Clinico</button>
+</mat-card>
+
+<hr>
+<mat-card>
+    <mat-form-field appearance="fill">
+        <mat-label>Filtro</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+</mat-card>
+<hr>
+<div class="responsive_table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="id_caso">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat.cell *matCellDef="let element">{{element.id_caso}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre_caso">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat.cell *matCellDef="let element">{{element.nombre_caso}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="dificultad">
+            <th mat-header-cell *matHeaderCellDef>Dificultad</th>
+            <td mat.cell *matCellDef="let element">{{element.dificultad}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef>Acción</th>
+            <td mat.cell *matCellDef="let element" class="action-link">
+                <button mat-icon-button color="primary" matTooltip="Editar" (click)="handleEditAction(element)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" matTooltip="Eliminar" (click)="handleDeleteAction(element)">
+                    <mat-icon>delete</mat-icon>
+                </button>               
+            </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+        <tr mat-row *matRowDef="let row; columns:displayedColumns"></tr>
+    </table>
+</div>

@@ -1,0 +1,15 @@
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  mat-dialog-content {
+    font-size: 16px;
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  

@@ -1,0 +1,16 @@
+.mat-toolbar {
+    margin: 0px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.title-center {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+mat-form-field {
+    padding: 5px;
+    width: 100%; /* Hace que los campos ocupen todo el ancho disponible */
+    box-sizing: border-box;
+}

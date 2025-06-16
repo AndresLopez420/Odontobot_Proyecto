@@ -1,0 +1,266 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span class="title-center">{{dialogAction.action}} Caso Clínico</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="casoForm">
+        <div fxFlex fxLayout="column"> <!-- Cambiado a column -->
+
+            <mat-card-header>
+                <mat-card-title>Datos del Paciente</mat-card-title>
+            </mat-card-header>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre del Paciente</mat-label>
+                <input matInput formControlName="nombre_pv" required>
+                <mat-error *ngIf="casoForm.controls.nombre_pv.touched && casoForm.controls.nombre_pv.invalid">
+                    <span *ngIf="casoForm.controls.nombre_pv.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Fecha de Nacimiento</mat-label>
+                <input matInput [matDatepicker]="birthPicker" formControlName="fecha_nacimiento" required>
+                <mat-datepicker-toggle matSuffix [for]="birthPicker"></mat-datepicker-toggle>
+                <mat-datepicker #birthPicker></mat-datepicker>
+                <mat-error *ngIf="casoForm.controls.fecha_nacimiento.touched && casoForm.controls.fecha_nacimiento.invalid">
+                    <span *ngIf="casoForm.controls.fecha_nacimiento.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Nacionalidad</mat-label>
+                <input matInput formControlName="nacionalidad" required>
+                <mat-error *ngIf="casoForm.controls.nacionalidad.touched && casoForm.controls.nacionalidad.invalid">
+                    <span *ngIf="casoForm.controls.nacionalidad.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Teléfono</mat-label>
+                <input matInput formControlName="telefono" required>
+                <mat-error *ngIf="casoForm.controls.telefono.touched && casoForm.controls.telefono.invalid">
+                    <span *ngIf="casoForm.controls.telefono.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Actividad</mat-label>
+                <input matInput formControlName="actividad" required>
+                <mat-error *ngIf="casoForm.controls.actividad.touched && casoForm.controls.actividad.invalid">
+                    <span *ngIf="casoForm.controls.actividad.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Género</mat-label>
+                <mat-select formControlName="genero" required>
+                    <mat-option value="masculino">Masculino</mat-option>
+                    <mat-option value="femenino">Femenino</mat-option>
+                    <mat-option value="otro">Otro</mat-option>
+                </mat-select>
+                <mat-error *ngIf="casoForm.controls.genero.touched && casoForm.controls.genero.invalid">
+                    <span *ngIf="casoForm.controls.genero.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Dirección</mat-label>
+                <input matInput formControlName="direccion" required>
+                <mat-error *ngIf="casoForm.controls.direccion.touched && casoForm.controls.direccion.invalid">
+                    <span *ngIf="casoForm.controls.direccion.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>RUT</mat-label>
+                <input matInput formControlName="rut" required>
+                <mat-error *ngIf="casoForm.controls.rut.touched && casoForm.controls.rut.invalid">
+                    <span *ngIf="casoForm.controls.rut.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-card-header>
+                <mat-card-title>Datos del Caso Clínico</mat-card-title>
+            </mat-card-header>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre Caso</mat-label>
+                <input matInput formControlName="nombre_caso" required>
+                <mat-error *ngIf="casoForm.controls.nombre_caso.touched && casoForm.controls.nombre_caso.invalid">
+                    <span *ngIf="casoForm.controls.nombre_caso.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>ID Profesor</mat-label>
+                <input matInput formControlName="id_profesor" placeholder="Por defecto 1" required>
+                <mat-error *ngIf="casoForm.controls.id_profesor.touched && casoForm.controls.id_profesor.invalid">
+                    <span *ngIf="casoForm.controls.id_profesor.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Dificultad</mat-label>
+                <mat-select formControlName="dificultad" required>
+                    <mat-option value="facil">Fácil</mat-option>
+                    <mat-option value="medio">Medio</mat-option>
+                    <mat-option value="dificil">Difícil</mat-option>
+                </mat-select>
+                <mat-error *ngIf="casoForm.controls.dificultad.touched && casoForm.controls.dificultad.invalid">
+                    <span *ngIf="casoForm.controls.dificultad.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Instancia</mat-label>
+                <input matInput formControlName="instancia" required>
+                <mat-error *ngIf="casoForm.controls.instancia.touched && casoForm.controls.instancia.invalid">
+                    <span *ngIf="casoForm.controls.instancia.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Módulo</mat-label>
+                <input matInput formControlName="modulo" required>
+                <mat-error *ngIf="casoForm.controls.modulo.touched && casoForm.controls.modulo.invalid">
+                    <span *ngIf="casoForm.controls.modulo.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Clase</mat-label>
+                <input matInput formControlName="clase" required>
+                <mat-error *ngIf="casoForm.controls.clase.touched && casoForm.controls.clase.invalid">
+                    <span *ngIf="casoForm.controls.clase.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Patología</mat-label>
+                <input matInput formControlName="patologia" required>
+                <mat-error *ngIf="casoForm.controls.patologia.touched && casoForm.controls.patologia.invalid">
+                    <span *ngIf="casoForm.controls.patologia.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Motivo de Consulta</mat-label>
+                <textarea matInput formControlName="motivo_consulta" required></textarea>
+                <mat-error *ngIf="casoForm.controls.motivo_consulta.touched && casoForm.controls.motivo_consulta.invalid">
+                    <span *ngIf="casoForm.controls.motivo_consulta.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Última Visita</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="ultima_visita" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="casoForm.controls.ultima_visita.touched && casoForm.controls.ultima_visita.invalid">
+                    <span *ngIf="casoForm.controls.ultima_visita.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-card-header>
+                <mat-card-title>Anamnesis Proxima</mat-card-title>
+            </mat-card-header>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Sintomas Recientes</mat-label>
+                <input matInput formControlName="sintomas_ap" required>
+                <mat-error *ngIf="casoForm.controls.sintomas_ap.touched && casoForm.controls.sintomas_ap.invalid">
+                    <span *ngIf="casoForm.controls.sintomas_ap.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Molestias o Dolores Recientes</mat-label>
+                <input matInput formControlName="molestia_ap" required>
+                <mat-error *ngIf="casoForm.controls.molestia_ap.touched && casoForm.controls.molestia_ap.invalid">
+                    <span *ngIf="casoForm.controls.molestia_ap.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-card-header>
+                <mat-card-title>Anamnesis Remota</mat-card-title>
+            </mat-card-header>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Enfermedades Crónicas</mat-label>
+                <input matInput formControlName="enfermedadescronicas_ar" required>
+                <mat-error *ngIf="casoForm.controls.enfermedadescronicas_ar.touched && casoForm.controls.enfermedadescronicas_ar.invalid">
+                    <span *ngIf="casoForm.controls.enfermedadescronicas_ar.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Alergias</mat-label>
+                <input matInput formControlName="alergias_ar" required>
+                <mat-error *ngIf="casoForm.controls.alergias_ar.touched && casoForm.controls.alergias_ar.invalid">
+                    <span *ngIf="casoForm.controls.alergias_ar.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Medicamentos Regulares</mat-label>
+                <input matInput formControlName="medicamentos_ar" required>
+                <mat-error *ngIf="casoForm.controls.medicamentos_ar.touched && casoForm.controls.medicamentos_ar.invalid">
+                    <span *ngIf="casoForm.controls.medicamentos_ar.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Antecedentes Odontológicos</mat-label>
+                <input matInput formControlName="antecedentes_ar" required>
+                <mat-error *ngIf="casoForm.controls.antecedentes_ar.touched && casoForm.controls.antecedentes_ar.invalid">
+                    <span *ngIf="casoForm.controls.antecedentes_ar.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Hábitos</mat-label>
+                <input matInput formControlName="habitos_ar" placeholder="Ej. Fumo y bebo alcohol" required>
+                <mat-error *ngIf="casoForm.controls.habitos_ar.touched && casoForm.controls.habitos_ar.invalid">
+                    <span *ngIf="casoForm.controls.habitos_ar.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Higiene</mat-label>
+                <input matInput formControlName="higiene_ar" placeholder="Ej. Me cepillo 3 veces al dia" required>
+                <mat-error *ngIf="casoForm.controls.higiene_ar.touched && casoForm.controls.higiene_ar.invalid">
+                    <span *ngIf="casoForm.controls.higiene_ar.errors.required">Este campo es obligatorio</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Exámen Extraoral</mat-label>
+                <input type="file" (change)="onFileSelected($event, 'extraoral')" accept="image/*" style="display: none;" id="extraoralInput">
+                <input matInput [value]="selectedExtraoralFile?.name || ''" placeholder="Seleccionar archivo" readonly (click)="openFileInput('extraoral')" required>
+                <mat-error *ngIf="fileErrorExtraoral">{{ fileErrorExtraoral }}</mat-error>
+            </mat-form-field>    
+
+            <mat-form-field appearance="fill">
+                <mat-label>Exámen Intraoral</mat-label>
+                <input type="file" (change)="onFileSelected($event, 'intraoral')" accept="image/*" style="display: none;" id="intraoralInput">
+                <input matInput [value]="selectedIntraoralFile?.name || ''" placeholder="Seleccionar archivo" readonly (click)="openFileInput('intraoral')" required>
+                <mat-error *ngIf="fileErrorIntraoral">{{ fileErrorIntraoral }}</mat-error>
+            </mat-form-field>
+
+            <!-- Botón para adjuntar el archivo-->
+            <mat-form-field appearance="fill">
+                <mat-label>Exámenes</mat-label>
+                <input type="file" (change)="onFileSelected($event, 'examenes')" accept="image/*" style="display: none;" id="examenesInput">
+                <input matInput [value]="selectedFile?.name || ''" placeholder="Seleccionar archivo" readonly (click)="openFileInput('examenes')" required>
+                <mat-error *ngIf="fileError">{{ fileError }}</mat-error>
+            </mat-form-field>
+            
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()">Añadir Caso</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

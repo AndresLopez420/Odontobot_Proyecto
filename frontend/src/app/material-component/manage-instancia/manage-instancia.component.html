@@ -1,0 +1,82 @@
+<mat-card>
+    <b><span>Administración de Instancias</span></b>
+    <button mat-flat-button color="primary" class="float-right" (click)="handleAddAction()">Agregar Instancia</button>
+</mat-card>
+<hr>
+<mat-card>
+    <mat-form-field appearance="fill">
+        <mat-label>Filtro</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+</mat-card>
+<hr>
+<div class="responsive_table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="nombre_instancia">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.nombre_instancia}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipo_instancia">
+            <th mat-header-cell *matHeaderCellDef>Tipo</th>
+            <td mat-cell *matCellDef="let element">{{element.tipo_instancia}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="descripcion">
+            <th mat-header-cell *matHeaderCellDef>Descripción</th>
+            <td mat-cell *matCellDef="let element">{{element.descripcion}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="practicas_minimas">
+            <th mat-header-cell *matHeaderCellDef>Practicas Minimas</th>
+            <td mat-cell *matCellDef="let element">{{element.practicas_minimas}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="intentos">
+            <th mat-header-cell *matHeaderCellDef>Intentos</th>
+            <td mat-cell *matCellDef="let element">{{element.intentos}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="entrega">
+            <th mat-header-cell *matHeaderCellDef>Entrega</th>
+            <td mat-cell *matCellDef="let element">{{element.entrega}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">{{element.estado}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="modalidad">
+            <th mat-header-cell *matHeaderCellDef>Modalidad</th>
+            <td mat-cell *matCellDef="let element">{{element.modalidad}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="fecha_inicio">
+            <th mat-header-cell *matHeaderCellDef>Fecha de inicio</th>
+            <td mat-cell *matCellDef="let element">{{element.fecha_inicio}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="fecha_termino">
+            <th mat-header-cell *matHeaderCellDef>Fecha de termino</th>
+            <td mat-cell *matCellDef="let element">{{element.fecha_termino}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <th mat-cell *matCellDef="let element" class="action-link">
+                <button mat-icon-button color="primary" matTooltip="Editar" (click)="handleEditAction(element)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" matTooltip="Eliminar" (click)="handleDeleteAction(element)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <mat-slide-toggle (change)="onChange($event.checked, element.id_instancia)" matTooltip="Activar/Desactivar Instancia" [checked]="element.status"></mat-slide-toggle>
+            </th>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+        <tr mat-row *matRowDef="let row; columns:displayedColumns"></tr>
+    </table>
+
+</div>
